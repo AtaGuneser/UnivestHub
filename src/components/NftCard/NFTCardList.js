@@ -1,28 +1,34 @@
-import React from 'react';
+import React from 'react'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import './NFTCardList.css'
 
-function NFTCard({ nftData }) {
+const NFTCardList = () => {
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        axios
+            .get('http://localhost:3000/data')
+            .then(response => setData(response.data))
+            .catch(error => console.log({ error }));
+
+    }, [])
+
     return (
-        <div className="card">
-            <img src={nftData.logo_url} alt={nftData.contract_name} />
-            <div className="card-content">
-                <div className="card-title">{nftData.contract_name}</div>
-                <div className="card-info">
-                    Sales: {nftData.sales_total} | Floor Price: {nftData.floor_price}
+        <div className='container'>
+            {data.map(nft => {
+                return <div key={nft.contract_name} className='card'>
+                    <p className='nftLogo'><img src={nft.logo_url} alt={nft.contract_name} /></p>
+                    <h2 className='nftName'>{nft.contract_name}</h2>
+                    <h3 className='nftBanner'><img src={nft.banner_url} alt={nft.contract_name} /></h3>
+                    <h4 className='nftTotal'>Total Items: {nft.items_total}</h4>
                 </div>
-                <div className="card-price">
-                    Average Price: {nftData.average_price_30d}
-                </div>
-            </div>
+            })}
+
+
         </div>
-    );
+    )
 }
 
-export default function NFTCardList({ nftDataList }) {
-    return (
-        <div className="container">
-            {nftDataList.map((nftData, index) => (
-                <NFTCard key={index} nftData={nftData} />
-            ))}
-        </div>
-    );
-}
+export default NFTCardList
