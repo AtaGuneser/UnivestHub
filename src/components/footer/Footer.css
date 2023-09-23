@@ -1,6 +1,6 @@
+/* Footer */
 .footer {
     background-color: #414141;
-    
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
@@ -9,28 +9,23 @@
     font-size: 16px;
     padding: 50px;
     margin-top: 50px;
-    height: 200px;
-    
+    display: flex;
+    flex-wrap: wrap;
+    opacity: 90%;
 }
 
-.footer .footer-left,
-.footer .footer-center,
-.footer .footer-right {
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 4px;
-    
+.footer-left,
+.footer-center,
+.footer-right {
+    flex: 1;
 }
 
-
-/* footer left*/
-
-.footer .footer-left {
-    width: 33%;
+/* Footer Left */
+.footer-left {
     padding-right: 15px;
 }
 
-.footer .about {
+.about {
     line-height: 20px;
     color: #ffffff;
     font-size: 13px;
@@ -38,7 +33,7 @@
     margin: 0;
 }
 
-.footer .about span {
+.about span {
     display: block;
     color: #ffffff;
     font-size: 14px;
@@ -46,11 +41,11 @@
     margin-bottom: 20px;
 }
 
-.footer .icons {
+.icons {
     margin-top: 25px;
 }
 
-.footer .icons a {
+.icons a {
     display: inline-block;
     width: 35px;
     height: 35px;
@@ -65,14 +60,24 @@
     margin-bottom: 5px;
 }
 
-
-/* footer center*/
-
-.footer .footer-center {
-    width: 30%;
+/* Footer Center */
+.footer-center {
+    padding: 0 15px;
+    text-align: center;
 }
 
-.footer .footer-center i {
+.footer-center div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-center div i {
+    margin-right: 10px;
+}
+
+.footer-center i {
     background-color: #33383b;
     color: #ffffff;
     font-size: 25px;
@@ -80,75 +85,91 @@
     height: 38px;
     border-radius: 50%;
     text-align: center;
-    line-height: 42px;
-    margin: 10px 20px;
-    vertical-align: middle;
-}
-
-.footer .footer-center i.fa-envelope {
-    font-size: 17px;
     line-height: 38px;
+    margin-right: 10px; /* İkonlar arasındaki boşluğu ayarlar */
+    margin-left: 200px;
+    margin-top: 12px;
 }
 
-.footer .footer-center p {
+.footer-center i.fa-envelope {
+    font-size: 17px;
+}
+
+.footer-center p {
     display: inline-block;
     color: #ffffff;
     vertical-align: middle;
     margin: 0;
 }
 
-.footer .footer-center p span {
+.footer-center p span {
     display: block;
     font-weight: normal;
     font-size: 14px;
     line-height: 2;
 }
 
-.footer .footer-center p a {
+.footer-center p a {
     color: #0099ff;
     text-decoration: none;
 }
 
-
-/* footer right*/
-
-.footer .footer-right {
-    width: 35%;
+/* Footer Right */
+.footer-right {
+    padding-left: 15px;
+    text-align: right;
 }
 
-.footer h2 {
-    color: #ffffff;
-    font-size: 36px;
-    font-weight: normal;
-    margin: 0;
+.logo-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
 }
 
-.footer h2 span {
-    color: #0099ff;
+.baykusLogo {
+    width: 100px;
+    margin-left: 20px;
 }
 
-.footer .menu {
+.menu {
     color: #ffffff;
     margin: 20px 0 12px;
     padding: 0;
 }
 
-.footer .menu a {
+.menu a {
     display: inline-block;
     line-height: 1.8;
     text-decoration: none;
     color: inherit;
+    position: relative;
 }
 
-.footer .menu a:hover {
-    color: #0099ff;
+.menu a:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #0099ff;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
 }
 
-.footer .name {
+.menu a:hover:after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.name {
     color: #0099ff;
     font-size: 14px;
     font-weight: normal;
     margin: 0;
+    margin-right: 200px;
 }
 
 @media (max-width: 767px) {
@@ -156,21 +177,23 @@
         font-size: 14px;
     }
 
-    .footer .footer-left,
-    .footer .footer-center,
-    .footer .footer-right {
-        display: block;
-        width: 100%;
-        margin-bottom: 40px;
+    .footer-left,
+    .footer-center,
+    .footer-right {
         text-align: center;
+        padding: 0;
     }
 
-    .footer .footer-center i {
-        margin-left: 0;
+    .footer-center div {
+        flex-direction: column;
     }
-}
 
-.baykusLogo{
-    width: 100px;
-    margin-left: 20px;
+    .logo-menu {
+        justify-content: center;
+    }
+
+    .baykusLogo {
+        margin-left: -10px;
+        margin-right: 90px;
+    }
 }
