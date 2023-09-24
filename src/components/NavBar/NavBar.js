@@ -11,6 +11,7 @@ function NavBar() {
             <ul className="navbar-links">
                 <li><a href="/">Home</a></li>
                 <li><a href="/hakkimizda">About Us</a></li>
+                <li><a href="/hakkimizda">Services</a></li>
                 <li><a href="/iletisim">Contact</a></li>
             </ul>
         </nav>

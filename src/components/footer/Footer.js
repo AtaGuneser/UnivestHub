@@ -14,7 +14,6 @@ const Footer = () => {
                     <a href="#"><i className="fa fa-facebook"></i></a>
                     <a href="#"><i className="fa fa-twitter"></i></a>
                     <a href="#"><i className="fa fa-linkedin"></i></a>
-                    <a href="#"><i className="fa fa-google-plus"></i></a>
                     <a href="#"><i className="fa fa-instagram"></i></a>
                 </div>
             </div>
@@ -36,13 +35,13 @@ const Footer = () => {
                 <div className="logo-menu">
                     <img src={baykusLogo} alt="baykusLogo" className='baykusLogo' />
                     <p className="menu">
-                        <a href="#"> Home </a> | {}
-                        <a href="#"> About Us </a> | {}
-                        <a href="#"> Services </a> | {}
+                        <a href="#"> Home </a> | { }
+                        <a href="#"> About Us </a> | { }
+                        <a href="#"> Services </a> | { }
                         <a href="#"> Contact Us </a>
                     </p>
                 </div>
-                <p className="name"> All rights reserved &copy; 2023</p>
+                <p className="name"> &copy; 2023 All rights reserved</p>
             </div>
         </footer>
     );
